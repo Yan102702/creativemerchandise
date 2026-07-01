@@ -1,10 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Merchandise Limited | Luxury Leather Goods</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Inter,sans-serif;
+background:#0c0c0c;
+color:#fff;
+}
+
+header{
+height:100vh;
+background:url('https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1600&q=80');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+}
+
+header::after{
+content:'';
+position:absolute;
+top:0;left:0;width:100%;height:100%;
+background:rgba(0,0,0,0.6);
+}
+
+.hero{
+position:relative;
+z-index:2;
+max-width:800px;
+}
+
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:54px;
+letter-spacing:2px;
+}
+
+.hero p{
+margin-top:15px;
+opacity:0.8;
+font-size:18px;
+}
+
+.btn{
+margin-top:25px;
+display:inline-block;
+padding:12px 28px;
+border:1px solid #fff;
+color:#fff;
+text-decoration:none;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#fff;
+color:#000;
+}
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+padding:20px 40px;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+z-index:10;
+}
+
+nav a{
+color:#fff;
+text-decoration:none;
+margin-left:20px;
+font-size:14px;
+opacity:0.8;
+}
+
+nav a:hover{opacity:1}
+
+section{
+padding:80px 40px;
+max-width:1200px;
+margin:auto;
+}
+
+h2{
+font-family:'Playfair Display',serif;
+font-size:36px;
+margin-bottom:40px;
+text-align:center;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:#151515;
+border-radius:12px;
+overflow:hidden;
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:260px;
+object-fit:cover;
+}
+
+.card-content{
+padding:15px;
+}
+
+.card h3{
+font-size:18px;
+margin-bottom:5px;
+}
+
+.price{
+color:#d4af37;
+margin-top:10px;
+font-weight:600;
+}
+
+footer{
+background:#000;
+padding:60px 40px;
+margin-top:80px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.small{
+opacity:0.7;
+font-size:14px;
+line-height:1.6;
+}
+
+.contact{
+line-height:1.8;
+}
+
+.badge{
+color:#d4af37;
+font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div><b>Creative Merchandise</b></div>
+<div>
+<a href="#collection">Collection</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<header>
+<div class="hero">
+<h1>Luxury Leather Goods</h1>
+<p>Handcrafted designer bags for modern elegance</p>
+<a class="btn" href="#collection">Explore Collection</a>
+</div>
+</header>
+
+<section id="collection">
+<h2>Signature Collection</h2>
+
 <div class="grid">
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=80">
 <div class="card-content">
 <h3>Aurora Top Handle</h3>
-<p>Handcrafted premium leather handbag.</p>
+<p class="small">Full-grain leather, gold accents</p>
 <div class="price">£2,525</div>
 </div>
 </div>
@@ -12,8 +205,8 @@
 <div class="card">
 <img src="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=900&q=80">
 <div class="card-content">
-<h3>Kensington Leather Tote</h3>
-<p>Elegant tote crafted from full-grain leather.</p>
+<h3>Kensington Tote</h3>
+<p class="small">Minimalist structured design</p>
 <div class="price">£2,990</div>
 </div>
 </div>
@@ -22,7 +215,7 @@
 <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=80">
 <div class="card-content">
 <h3>Milano Signature</h3>
-<p>Luxury Italian-inspired designer handbag.</p>
+<p class="small">Italian-inspired craftsmanship</p>
 <div class="price">£3,900</div>
 </div>
 </div>
@@ -31,17 +224,8 @@
 <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=900&q=80">
 <div class="card-content">
 <h3>Riviera Mini</h3>
-<p>Compact luxury bag for everyday elegance.</p>
+<p class="small">Compact luxury everyday bag</p>
 <div class="price">£2,525</div>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=80">
-<div class="card-content">
-<h3>Victoria Evening</h3>
-<p>Evening handbag with refined gold-tone accents.</p>
-<div class="price">£2,990</div>
 </div>
 </div>
 
@@ -49,18 +233,68 @@
 <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=900&q=80">
 <div class="card-content">
 <h3>Monaco Weekender</h3>
-<p>Spacious luxury leather travel bag.</p>
+<p class="small">Luxury travel leather bag</p>
 <div class="price">£3,900</div>
 </div>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=900&q=80">
+<img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80">
 <div class="card-content">
-<h3>Chelsea Heritage</h3>
-<p>Classic structured leather handbag with timeless design.</p>
-<div class="price">£2,020</div>
+<h3>Victoria Evening</h3>
+<p class="small">Elegant evening luxury design</p>
+<div class="price">£2,990</div>
 </div>
 </div>
 
 </div>
+</section>
+
+<section id="about">
+<h2>About Us</h2>
+<p class="small" style="max-width:800px;margin:auto;text-align:center;">
+Creative Merchandise Limited is a UK-based luxury goods studio specializing in handcrafted leather handbags.
+We focus on timeless design, premium materials, and modern elegance.
+</p>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+
+<p class="small" style="text-align:center">
+<span class="badge">Creative Merchandise Limited</span><br><br>
+
+📞 +44 7828 783468<br>
+📧 msemmajanesmith2@outlook.com<br>
+United Kingdom<br><br>
+
+Business Hours: Mon–Fri 09:00–18:00
+</p>
+</section>
+
+<footer>
+<div class="footer-grid">
+
+<div>
+<h3>Creative Merchandise</h3>
+<p class="small">Luxury leather goods crafted with precision and elegance.</p>
+</div>
+
+<div>
+<h3>Customer Care</h3>
+<p class="small">Shipping<br>Returns<br>Privacy Policy</p>
+</div>
+
+<div>
+<h3>Contact</h3>
+<p class="small">
++44 7828 783468<br>
+msemmajanesmith2@outlook.com
+</p>
+</div>
+
+</div>
+</footer>
+
+</body>
+</html>
