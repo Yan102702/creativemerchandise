@@ -1,3 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Merchandise Limited | Luxury Bags</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+font-family:Inter;
+background:#0b0b0b;
+color:#fff;
+}
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+padding:18px 30px;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+z-index:10;
+}
+
+nav b{
+font-family:'Playfair Display';
+letter-spacing:1px;
+}
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:url('https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1600&q=80') center/cover;
+position:relative;
+}
+
+.hero::after{
+content:'';
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.6);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:700px;
+}
+
+h1{
+font-family:'Playfair Display';
+font-size:54px;
+margin:0;
+}
+
+p{
+opacity:0.8;
+}
+
+section{
+padding:80px 30px;
+max-width:1200px;
+margin:auto;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:#151515;
+border-radius:14px;
+overflow:hidden;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:250px;
+object-fit:cover;
+}
+
+.card-content{
+padding:15px;
+}
+
+.price{
+color:#d4af37;
+margin-top:10px;
+font-weight:600;
+}
+
+button{
+margin-top:10px;
+padding:8px 12px;
+border:none;
+cursor:pointer;
+background:#fff;
+color:#000;
+}
+
+button:hover{
+background:#d4af37;
+}
+
+.cart{
+position:fixed;
+right:20px;
+bottom:20px;
+background:#000;
+border:1px solid #333;
+padding:15px;
+width:260px;
+border-radius:10px;
+}
+
+.small{
+font-size:12px;
+opacity:.7;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<b>Creative Merchandise</b>
+<div>Luxury Bags Collection</div>
+</nav>
+
+<div class="hero">
+<div class="hero-content">
+<h1>Luxury Leather Bags</h1>
+<p>Handcrafted elegance. Modern design. Timeless quality.</p>
+</div>
+</div>
+
+<section>
+<h2 style="text-align:center;font-family:'Playfair Display'">Signature Collection</h2>
+
 <div class="grid">
 
 <div class="card">
@@ -37,15 +191,6 @@
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=900&q=80">
-<div class="card-content">
-<h3>Monaco Weekender</h3>
-<div class="price">£3,900</div>
-<button onclick="add('Monaco Weekender',3900)">Add to Cart</button>
-</div>
-</div>
-
-<div class="card">
 <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80">
 <div class="card-content">
 <h3>Victoria Evening</h3>
@@ -55,30 +200,47 @@
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=900&q=80">
+<img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=900&q=80">
 <div class="card-content">
-<h3>Oxford Classic</h3>
-<div class="price">£2,525</div>
-<button onclick="add('Oxford Classic',2525)">Add to Cart</button>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba6?auto=format&fit=crop&w=900&q=80">
-<div class="card-content">
-<h3>Paris Elegance</h3>
+<h3>Monaco Weekender</h3>
 <div class="price">£3,900</div>
-<button onclick="add('Paris Elegance',3900)">Add to Cart</button>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=80">
-<div class="card-content">
-<h3>London Heritage</h3>
-<div class="price">£2,990</div>
-<button onclick="add('London Heritage',2990)">Add to Cart</button>
+<button onclick="add('Monaco Weekender',3900)">Add to Cart</button>
 </div>
 </div>
 
 </div>
+</section>
+
+<div class="cart">
+<h3>🛒 Cart</h3>
+<div id="items" class="small">Empty</div>
+<p>Total: £<span id="total">0</span></p>
+<button onclick="checkout()">Checkout</button>
+</div>
+
+<script>
+let cart=[];
+let total=0;
+
+function add(name,price){
+cart.push({name,price});
+total+=price;
+render();
+}
+
+function render(){
+document.getElementById("items").innerHTML =
+cart.map(i=>i.name+" - £"+i.price).join("<br>");
+document.getElementById("total").innerText=total;
+}
+
+function checkout(){
+alert("Order sent to Creative Merchandise Limited\nTotal: £"+total);
+cart=[];
+total=0;
+render();
+}
+</script>
+
+</body>
+</html>
